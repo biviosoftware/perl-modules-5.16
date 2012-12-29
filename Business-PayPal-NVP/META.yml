@@ -1,0 +1,14 @@
+--- #YAML:1.0
+name:                Business-PayPal-NVP
+version:             1.08
+abstract:            PayPal NVP API
+license:             ~
+author:              
+    - Scott Wiersdorf <scott@perlcode.org>
+generated_by:        ExtUtils::MakeMaker version 6.42
+distribution_type:   module
+requires:     
+    LWP::Protocol::https:          0
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3
