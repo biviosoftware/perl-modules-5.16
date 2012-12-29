@@ -1,0 +1,78 @@
+Revision history for Geo::ShapeFile.
+
+2.52  Fri Sep 14 10:43:34 EDT 2007
+    - Fixed the overloading setup in Geo::ShapeFile::Point to keep it from
+      failing the tests caused by recent changes in Test::Builder (it was
+      definitely my bug though, don't blame the excellent Test modules for
+      it!)  This bug was reported by Hermann Schwaerzler, Andrew Koebrick,
+      Celia Mackie, Andrew McGregor, and probably a lot of other folks
+      (you can thank all these people for release 2.52, it was this bug that
+      clued me in how many people were actually using the package, I hadn't
+      intended to do another release until 3.00 was ready to go.)
+    - FINALLY fixed the (hopefully last of) the big-endian problem.  I
+      hadn't planeed to include this in this release, as I was still trying
+      to figure out how to fix it, but while going through my Geo::ShapeFile
+      related mail to see if there were any other little problems reported
+      that I could include, I discovered a wonderful patch that had been
+      sent to me some time ago by Jerry Leibold, which had somehow fallen
+      through the cracks.  My apologies for taking 2 years to get this
+      fixed, but every time I tried to figure out a solution I was stymied
+      by my lack of big-endian hardware (not to mention the fact that my
+      day job hasn't included mapping for several years, so I have precious
+      little free time to spend on maintaining Geo::ShapeFile, and most of
+      that time I've been putting into version 3.00)  This problem was also
+      reported by Josh Narins and probably other people whose emails I have
+      since misplaced.
+    - Reorganized the package layout a bit, so you can do 'prove -vl t' in
+      the distribution directory now.
+    - Roger Crew pointed out that the centroid of a polygonal area is
+      different from the centroid of its vertices, and contributed a new
+      area_centroid() method for Geo::ShapeFile::Shape.  I renamed the
+      existing centroid() method to vertex_centroid(), although for the
+      time being, centroid() is an alias to vertex_centroid().
+    - Roger Crew also contributed a contains_point() method for
+      Geo::ShapeFile::Shape that determines whether a given point falls
+      within the interior of the shape.  Miroslav Suchy also contributed
+      a similar method, but I used Roger's because it didn't add any more
+      external dependencies.
+    - Fixed an argument ordering bug in Geo::ShapeFile::bounds_contains_point
+      (also reported by Roger Crew, thanks for the all the help Roger!)
+
+2.51  Thu May 12 11:01:41 EDT 2005
+    - Corrected a stupid math problem in Geo::ShapeFile::Shape::centroid
+      function, reported by an anonymous rt.cpan.org user.
+    - Fixed a problem discovered by Celia Mackie, where some complex shape
+      types didn't have their Z and M values transferred into the points
+      correctly, making it difficult to access those values.
+
+2.50  Sat Jul  3 19:08:50 EDT 2004
+    - things calming down at new job, more free time at home for pet projects.
+      hopefully this means more Geo::ShapeFile support to come (as well as
+      posting some new modules in progress)
+    - fixed windows bug reported by Patrick Dughi
+    - object caching
+    - fixed another windows bug reported by A. B. Jones
+    - fixed dumb regexp bug that wouldn't let you use directories with a dot in
+      them (doh!).  Reported by Leo WEST
+    - fixed documentation bug for shapes_in_area reported by Chad Harp
+    - fixed endianess bug reported by Daniel Gildea
+    - fixed some count issues, and code cleanup reported by Fergus McMenemie
+    - documentation clarification suggested by Christopher Eykamp
+    - fixed divide by zero bug when using angle_to() on points with the same
+      X value, reported by Frank Maas
+    - fixed bug where has_point() missed points that fell exactly on the
+      boundary of the area specified, reported by Frank Maas
+    - modified dbf file reader to correctly load DBF files that don't have
+      an end-of-file marker byte.  This should correct the 'file size off
+      by one byte' bug first reported by Attila Csipa (sorry it took so long,
+      I couldn't find data that reproduced it), patch submitted by
+      Aleksandar Jelenak.
+
+2.10  Mon Mar 17 14:59:00 2003
+    - fixed missing prerequisites in Makefile.PL
+    - initial support for creating new shapefiles
+    - removed some less-than-useful required modules
+
+1.5   Sun Feb 16 11:35:00 2003
+    - initial release
+
