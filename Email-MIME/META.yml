@@ -1,0 +1,31 @@
+---
+abstract: unknown
+author:
+  - unknown
+build_requires:
+  ExtUtils::MakeMaker: 0
+configure_requires:
+  ExtUtils::MakeMaker: 0
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 6.6302, CPAN::Meta::Converter version 2.120921'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Email-MIME
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  Email::MIME::ContentType: 1.011
+  Email::MIME::Encodings: 1.313
+  Email::MessageID: 0
+  Email::Simple: 2.102
+  Email::Simple::Creator: 0
+  Encode: 1.9801
+  MIME::Types: 1.13
+  Test::More: 0.88
+resources:
+  repository: http://github.com/rjbs/email-mime
+version: 1.911
