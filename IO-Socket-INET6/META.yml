@@ -1,0 +1,44 @@
+---
+abstract: 'Object interface for AF_INET|AF_INET6 domain sockets'
+author:
+  - "This program is based on L<IO::Socket::INET> by Graham Barr\n<gbarr@pobox.com> and currently maintained by the Perl Porters."
+  - "Modified by Rafael Martinez Torres <rafael.martinez@novagnet.com> and\nEuro6IX project."
+  - "Modified further by Shlomi Fish <shlomif@iglu.org.il>, while disclaiming\nall copyrights."
+build_requires:
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.36
+dynamic_config: 1
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.112621'
+keywords:
+  - inet6
+  - input
+  - internet
+  - ipv6
+  - network
+  - networking
+  - output
+  - socket
+  - sockets
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: IO-Socket-INET6
+provides:
+  IO::Socket::INET6:
+    file: lib/IO/Socket/INET6.pm
+    version: 2.69
+requires:
+  Carp: 0
+  Errno: 0
+  Exporter: 0
+  IO::Socket: 0
+  Socket: 0
+  Socket6: 0.12
+  strict: 0
+  warnings: 0
+resources:
+  license: http://dev.perl.org/licenses/
+  repository: https://bitbucket.org/shlomif/perl-io-socket-inet6
+version: 2.69
