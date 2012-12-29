@@ -1,0 +1,31 @@
+Revision history for Perl extension String::Tokenizer.
+
+0.05 Tues Aug 31 2004
+    - added support for whitespace tokens, feature 
+      requested by Stephan Tobias.
+        - added tests for this
+        - added documenation for this
+    - fixed bug where the '0' token got ignored, also
+      thanks to Stephan Tobias for this.
+
+0.04  Sun Aug 22 2004
+    - added skipTokensUntil and collectTokensUntil methods
+      to the String::Tokenizer::Iterator
+        - added test for this
+        - added documentation for this
+    - added the pod.t and pod_coverage.t test files
+
+0.03  Thurs May 6 2004
+    - fixed some documentation issues.
+    - added token iteration support with the inner class
+      String::Tokenizer::Iterator.
+        - added tests for iteration
+        - added documentation for iteration
+
+0.02  Mon April 12 2004
+    - error in the Makefile.PL file, no changes on this release
+
+0.01  Thu Mar 18 11:04:22 2004
+	- original version; created by h2xs 1.22 with options
+		-X -n String::Tokenizer
+
