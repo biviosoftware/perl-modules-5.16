@@ -1,0 +1,19 @@
+--- #YAML:1.0
+name:                Mail-DKIM
+version:             0.39
+abstract:            Signs/verifies Internet mail with DKIM/DomainKey signatures
+license:             ~
+author:              
+    - Jason Long <jason@long.name>
+generated_by:        ExtUtils::MakeMaker version 6.42
+distribution_type:   module
+requires:     
+    Crypt::OpenSSL::RSA:           0.24
+    Digest::SHA:                   0
+    Mail::Address:                 0
+    MIME::Base64:                  0
+    Net::DNS:                      0
+    Test::Simple:                  0
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3
