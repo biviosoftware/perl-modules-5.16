@@ -1,0 +1,19 @@
+--- #YAML:1.0
+name:                Email-Reply
+version:             1.202
+abstract:            Reply to a Message
+license:             perl
+generated_by:        ExtUtils::MakeMaker version 6.32
+distribution_type:   module
+requires:     
+    Email::Abstract:               2.01
+    Email::Address:                1.80
+    Email::MIME:                   1.82
+    Email::MIME::Creator:          1.41
+    Email::MIME::Modifier:         1.42
+    Test::More:                    0.47
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
+    version: 1.2
+author:
+    - Casey West <casey@geeknest.com>
