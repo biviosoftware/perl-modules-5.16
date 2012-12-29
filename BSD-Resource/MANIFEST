@@ -1,0 +1,17 @@
+MANIFEST
+Makefile.PL
+ppport.h
+Resource.pm
+Resource.xs
+t/getrusage.t
+t/getrlimit.t
+t/setrlimit.t
+t/getpriority.t
+t/pod.t
+t/pod-coverage.t
+t/setpriority.t
+t/times.t
+README
+ChangeLog
+INSTALL
+META.yml                                 Module meta-data (added by MakeMaker)
