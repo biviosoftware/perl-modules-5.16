@@ -71,18 +71,7 @@ sub import {
 
 sub overload_string {
   my $fmt;
-  BEGIN { $^W = 0; }
-  if (defined ($#)) {
-    $fmt = $#;
-    BEGIN { $^W = 1; }
-    # protect against calling sprintf_internal with a bad format
-    if ($fmt !~ /^((%%|[^%])*%[-+ .\d]*)([eEfgG](%%|[^%])*)$/) {
-      die "GMP::Mpf: invalid \$# format: $#\n";
-    }
-    $fmt = $1 . 'F' . $3;
-  } else {
-    $fmt = '%.Fg';
-  }
+  $fmt = '%.Fg';
   GMP::sprintf_internal ($fmt, $_[0]);
 }
 
