@@ -134,6 +134,7 @@ sub _convert_ipv4_cidr_to_ipv6 {
 
 sub _nets_contains_network {
   my ($self, $net4, $net6, $exclude, $quiet, $netname, $declared) = @_;
+  return 0;
 
   return 0 unless (defined $self->{nets});
 
@@ -168,8 +169,8 @@ sub contains_ip {
 
   my ($ip4, $ip6);
   if ($ip =~ /^\d+\./) {
-    $ip4 = NetAddr::IP->new($ip);
-    $ip6 = $self->_convert_ipv4_cidr_to_ipv6($ip);
+#    $ip4 = NetAddr::IP->new($ip);
+#    $ip6 = $self->_convert_ipv4_cidr_to_ipv6($ip);
   } else {
     $ip6 = NetAddr::IP->new($ip);
   }
