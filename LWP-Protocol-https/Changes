@@ -1,0 +1,31 @@
+_______________________________________________________________________________
+2013-04-29 LWP-Protocol-https 6.04
+
+Fix IO::Socket::SSL warnings when not verifying hostname.
+
+Doc spelling fix.
+
+
+
+_______________________________________________________________________________
+2012-02-18 LWP-Protocol-https 6.03
+
+Skip test if offline [RT#74163]
+
+Typo fixes
+
+Restore perl-5.8.1 compatibility.
+
+
+
+_______________________________________________________________________________
+2011-03-27 LWP-Protocol-https 6.02
+
+Initial release of LWP-Protocol-https as a separate distribution. There are no code
+changes besides setting the version number since libwww-perl-6.01.
+
+The LWP::Protocol::https module used to be bundled with the libwww-perl
+distribution, but it was unbundled in v6.02 in order to be able to declare its
+dependencies properly for the CPAN tool chain.  Applications that need https
+support can just declare their dependency on LWP::Protocol::https and will no
+longer need to know what underlying modules to install.
