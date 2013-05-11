@@ -1,4 +1,4 @@
-#! /usr/bin/false
+#
 #
 # $Id: MD5.pm,v 1.23 2004/08/27 20:28:25 lackas Exp $
 #
