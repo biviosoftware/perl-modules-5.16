@@ -42,7 +42,6 @@ use overload
     '>>'  => \&overload_rshift,  '>>=' => \&overload_rshifteq,
 
     'bool' => \&overload_bool,
-    'not'  => \&overload_not,
     '!'    => \&overload_not,
     '<=>'  => \&overload_spaceship,
     '++'   => \&overload_inc,
