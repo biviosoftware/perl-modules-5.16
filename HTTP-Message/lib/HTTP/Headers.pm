@@ -248,6 +248,8 @@ sub as_string
     for my $key (@{ $self->_sorted_field_names }) {
 	next if index($key, '_') == 0;
 	my $vals = $self->{$key};
+#pjm: fix uninitialized warning for empty header values
+	$vals = defined($vals) ? $vals : '';
 	if ( ref($vals) eq 'ARRAY' ) {
 	    for my $val (@$vals) {
 		my $field = $standard_case{$key} || $self->{'::std_case'}{$key} || $key;
