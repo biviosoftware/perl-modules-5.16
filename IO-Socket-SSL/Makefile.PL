@@ -1,9 +1,4 @@
 # vim: set sts=4 sw=4 ts=8 ai:
-#
-# a MakeMaker script for IO::Socket::SSL (aspa@hip.fi).
-#
-# $Id: Makefile.PL,v 1.1 2000/07/04 10:09:57 aspa Exp $.
-#
 
 use 5.008; 
 use ExtUtils::MakeMaker;
@@ -51,6 +46,17 @@ $| = 1;
     }
 }
 
+{
+    # don't support too old OpenSSL versions anymore, only causes trouble
+    my $openssl = eval { 
+	require Net::SSLeay; 
+	Net::SSLeay::OPENSSL_VERSION_NUMBER()
+    };
+    die sprintf(
+	"minimal required version for OpenSSL is 0.9.8, but your Net::SSLeay reports 0x%08x",
+	$openssl) if $openssl && $openssl < 0x00908000;
+}
+
 # make sure that we have dualvar from the XS Version of Scalar::Util
 if ( eval { require Scalar::Util } ) {
     eval { Scalar::Util::dualvar( 0,'' ) };
@@ -70,31 +76,29 @@ It's recommended to install either Net::IDN::Encode, Net::LibIDN or URI version>
 EOM
 }
 
-# check Version
-if ( eval { require Net::SSLeay } and $Net::SSLeay::VERSION <1.33 ) {
-    warn <<"EOM";
-
-WARNING
-You have version $Net::SSLeay::VERSION of Net::SSLeay.
-Support for subjectAltNames in certificates is only available in Version >=1.33
-so verifying a hostname against the certificate will not work.
-It is recommended to upgrade to a current Net::SSLeay.
-
-EOM
-}
 
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 WriteMakefile(
     'NAME' => 'IO::Socket::SSL',
-    'AUTHOR' => 'Steffen Ullrich & Peter Behroozi & Marko Asplund',
     'ABSTRACT' => 'Nearly transparent SSL encapsulation for IO::Socket::INET.',
-    'VERSION_FROM' => 'lib/IO/Socket/SSL.pm',
-    'DISTNAME' => 'IO-Socket-SSL',
+    'AUTHOR' => "Steffen Ullrich <sullr@cpan.org>, Peter Behroozi, Marko Asplund",
     'LICENSE' => 'perl',
+    'DISTNAME' => 'IO-Socket-SSL',
+    'VERSION_FROM' => 'lib/IO/Socket/SSL.pm',
     'PREREQ_PM' => {
-	'Net::SSLeay' => 1.21,
+	'Net::SSLeay' => 1.46,
 	'Scalar::Util' => 0,
     },
     'dist' => { COMPRESS => 'gzip', SUFFIX => 'gz', },
+    $ExtUtils::MakeMaker::VERSION >= 6.46 ? (
+	'META_MERGE' => {
+	    resources => {
+		license     => 'http://dev.perl.org/licenses/',
+		repository  => 'https://github.com/noxxi/p5-io-socket-ssl',
+		homepage    => 'https://github.com/noxxi/p5-io-socket-ssl',
+		bugtracker  => 'https://rt.cpan.org/Dist/Display.html?Queue=IO-Socket-SSL',
+	    },
+	},
+    ):(),
 );
