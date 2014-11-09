@@ -1,0 +1,38 @@
+Git version 0.03
+================
+
+This is the Git.pm from github’s git/git, which is a mirror of the
+git source.  I (cpan msouth, or current maintainer) update the VERSION
+string here, and maintain this little bit of POD.  That’s it.
+The only reason you would need this is if you are using something
+like Git::Hooks and you are using a perlbrewed (or otherwise separate)
+perl from the one git is using on your system (e.g. if you have a dev
+perl that’s separate from system perl and git uses the system perl.
+Then the Git.pm gets installed in the system lib and you have no way
+of getting it from CPAN, so your code that uses modules that depend
+on it doesn’t work).  Except for this paragraph and the VERSION
+string, this is just a copy of the latests version of perl/Git.pm from
+https://raw.github.com/git/git/master/perl/Git.pm .  Or, at least,
+it should be--let me know if it’s out of date and I hadn’t noticed.)
+
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+DEPENDENCIES
+
+Error.pm
+
+COPYRIGHT AND LICENCE
+
+Copyright 2006 by Petr Baudis <pasky@ucw.cz>
+
+This module is free software; it may be used, copied, modified
+and distributed under the terms of the GNU General Public Licence,
+either version 2, or (at your option) any later version.

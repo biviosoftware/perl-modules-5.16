@@ -1,0 +1,31 @@
+--- git_Git.pm	2013-06-20 11:18:16.000000000 -0400
++++ Git.pm	2013-06-20 11:16:11.000000000 -0400
+@@ -16,7 +16,7 @@
+ our ($VERSION, @ISA, @EXPORT, @EXPORT_OK);
+ 
+ # Totally unstable API.
+-$VERSION = '0.01';
++$VERSION = '0.03';
+ 
+ 
+ =head1 SYNOPSIS
+@@ -66,6 +66,19 @@
+ 
+ =head1 DESCRIPTION
+ 
++This is the Git.pm from github's git/git, which is a mirror of the git source.
++I (cpan msouth, or current maintainer) update the VERSION string here, and 
++maintain this little bit of POD.  That's it.  The only reason you would
++need this is if you are using something like Git::Hooks and you are using
++a perlbrewed (or otherwise separate) perl from the one git is using on your
++system (e.g. if you have a dev perl that's separate from system perl and git
++uses the system perl.  Then the Git.pm gets installed in the system lib and you
++have no way of getting it from CPAN, so your code that uses modules that 
++depend on it doesn't work).  Except for this paragraph and the VERSION
++string, this is just a copy of the latests version of perl/Git.pm from 
++https://raw.github.com/git/git/master/perl/Git.pm .  Or, at least, it should
++be--let me know if it's out of date and I hadn't noticed.)
++
+ This module provides Perl scripts easy way to interface the Git version control
+ system. The modules have an easy and well-tested way to call arbitrary Git
+ commands; in the future, the interface will also provide specialized methods

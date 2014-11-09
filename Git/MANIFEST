@@ -1,0 +1,9 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Git.t
+lib/Git.pm
+patch
+MYMETA.json
+MYMETA.yml
