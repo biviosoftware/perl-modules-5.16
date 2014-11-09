@@ -1,6 +1,5 @@
 Build.bat
 Build
-Makefile.PL
 _build
 blib
 *.tmp
